@@ -115,9 +115,10 @@
                                 <dd class="col-sm-8">{{ volume|formatnumber:"0"|default_if_none:"???" }}&nbsp;{% translate "m3" %}</dd>
                             </div>
                         {% endif %}
-
-                        <hr>
-                        {% translate "Note that this route is bidirectional, so Location and Destination can be switched." %}
+                        {% if pricing.is_bidirectional %}
+                            <hr>
+                            {% translate "Note that this route is bidirectional, so Location and Destination can be switched." %}
+                        {% endif %}
                     {% else %}
                         <p class="text-muted">{% translate "No price calculated yet" %}</p>
                     {% endif %}
